@@ -22,4 +22,9 @@ public class Operation {
     @Column(name = "date",nullable = false)
     private LocalDateTime date;
 
+    @ManyToOne
+    private Merchant merchant;
+    @ManyToOne
+    private Card card;
+
 }

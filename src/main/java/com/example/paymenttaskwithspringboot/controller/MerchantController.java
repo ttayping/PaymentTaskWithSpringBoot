@@ -2,6 +2,7 @@ package com.example.paymenttaskwithspringboot.controller;
 
 import com.example.paymenttaskwithspringboot.entity.Merchant;
 import com.example.paymenttaskwithspringboot.service.MerchantService;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ public class MerchantController {
         this.merchantService = merchantService;
     }
 
+    @PostMapping("createMerchant")
     public Merchant createMerchant(@RequestBody Merchant merchant){
        return merchantService.createMerchant(merchant);
     }
