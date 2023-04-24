@@ -23,6 +23,7 @@ public class OperationService {
     public Operation createOperation(Operation operation) {
         operation.setMerchant(merchantService.);
         operation.setCard(cardService.getCardByPan(operation.getCardPan()));
+
         return operationRepository.save(operation);
     }
 }

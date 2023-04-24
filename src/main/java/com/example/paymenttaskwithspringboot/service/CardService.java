@@ -18,11 +18,11 @@ private final CardRepository cardRepository;
     public Card createCard(Card card) {
         return cardRepository.save(card);
     }
-    public List<Card> selectAll(){
+    public List<Card> selectAllCards(){
         return cardRepository.findAll();
     }
     public Card getCardByPan(String panNumber){
-        List<Card>cardList = selectAll();
+        List<Card>cardList = selectAllCards();
         for (Card card : cardList) {
             if (Objects.equals(card.getPanNumber(), panNumber)) {
                 return card;
