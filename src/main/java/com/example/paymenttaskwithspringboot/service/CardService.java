@@ -4,6 +4,9 @@ import com.example.paymenttaskwithspringboot.entity.Card;
 import com.example.paymenttaskwithspringboot.repository.CardRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Objects;
+
 @Service
 public class CardService {
 private final CardRepository cardRepository;
@@ -13,6 +16,18 @@ private final CardRepository cardRepository;
     }
 
     public Card createCard(Card card) {
-    return cardRepository.save(card);
+        return cardRepository.save(card);
+    }
+    public List<Card> selectAll(){
+        return cardRepository.findAll();
+    }
+    public Card getCardByPan(String panNumber){
+        List<Card>cardList = selectAll();
+        for (Card card : cardList) {
+            if (Objects.equals(card.getPanNumber(), panNumber)) {
+                return card;
+            }
+        }
+        return null;
     }
 }

@@ -2,6 +2,7 @@ package com.example.paymenttaskwithspringboot.controller;
 
 import com.example.paymenttaskwithspringboot.entity.Account;
 import com.example.paymenttaskwithspringboot.service.AccountService;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ public class AccountController {
         this.accountService = accountService;
     }
 
+    @PostMapping("/createAccount")
     public Account createAccount(@RequestBody Account account){
         return accountService.createAccount(account);
     }
