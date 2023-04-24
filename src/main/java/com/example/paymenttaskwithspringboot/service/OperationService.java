@@ -17,10 +17,12 @@ public class OperationService {
         this.cardService = cardService;
         this.merchantService = merchantService;
     }
-    public String hidePanNumbers(String panNumber){
+    public String hidePanNumbers(@org.jetbrains.annotations.NotNull String panNumber){
         return "*".repeat(12) + panNumber.substring(12);
     }
-    public Operation createOperation(Operation operation){
+    public Operation createOperation(Operation operation) {
+        operation.setMerchant(merchantService.);
+        operation.setCard(cardService.getCardByPan(operation.getCardPan()));
 
         return operationRepository.save(operation);
     }
